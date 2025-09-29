@@ -1,0 +1,24 @@
+{
+  "name": "arduino-car-robot-computer-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "poller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engineeraibot/arduino-car-robot-computer-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/engineeraibot/arduino-car-robot-computer-backend/issues"
+  },
+  "homepage": "https://github.com/engineeraibot/arduino-car-robot-computer-backend#readme",
+  "dependencies": {
+    "serialport": "^13.0.0"
+  }
+}
