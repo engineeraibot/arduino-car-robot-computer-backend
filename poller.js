@@ -39,6 +39,8 @@ function poll() {
         serialPort.write(message, (err) => {
           if (err) {
             console.error(`Error writing to serial port: ${err.message}`);
+          } else {
+            console.log(`Writing to serial port: ${message}`);
           }
         });
       } else {
