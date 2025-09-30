@@ -51,7 +51,7 @@ function poll() {
           console.warn('⚠️ Serial port not open, cannot send data.');
         }
       } else {
-        console.log(`Not writing to serial port as command is the same`);
+        // console.log(`Not writing to serial port as command is the same`);
       }
     });
   });
