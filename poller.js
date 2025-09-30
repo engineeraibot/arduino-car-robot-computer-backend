@@ -2,15 +2,16 @@
 const http = require('http');
 const { SerialPort } = require('serialport');
 
-const hostname = '127.0.0.1';
-const port = 8082;
+const hostname = process.env.HOSTNAME || 'NO_HOST_NAME';
+const port = parseInt(process.env.PORT, 10) || -1;
+const arduinoPort = process.env.ARDUINO_PORT || 'NO_ARDUINO_PORT';
 
 // Poll interval in ms
 const interval = 50;
 
 // Configure the serial port
 const serialPort = new SerialPort({
-  path: 'COM3', // <-- Replace with your serial port, e.g. "COM3" on Windows, "/dev/ttyUSB0" on Linux, "/dev/tty.usbserial-xxx" on macOS
+  path: arduinoPort, // <-- Replace with your serial port, e.g. "COM3" on Windows, "/dev/ttyUSB0" on Linux, "/dev/tty.usbserial-xxx" on macOS
   baudRate: 9600, // Adjust depending on your hardware requirements
 });
 
