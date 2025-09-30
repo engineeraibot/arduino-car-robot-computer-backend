@@ -15,6 +15,8 @@ const serialPort = new SerialPort({
   baudRate: 9600, // Adjust depending on your hardware requirements
 });
 
+let lastPolledCommand = 'none';
+
 // Polling function
 function poll() {
   const options = {
@@ -35,16 +37,21 @@ function poll() {
       const message = `${data}.`; // Append "." as marker
       console.log(`Polled command: ${message}`);
 
-      if (serialPort.isOpen) {
-        serialPort.write(message, (err) => {
-          if (err) {
-            console.error(`Error writing to serial port: ${err.message}`);
-          } else {
-            console.log(`Writing to serial port: ${message}`);
-          }
-        });
+      if(message !== lastPolledCommand) {
+        lastPolledCommand = message;
+        if (serialPort.isOpen) {
+          serialPort.write(message, (err) => {
+            if (err) {
+              console.error(`Error writing to serial port: ${err.message}`);
+            } else {
+              console.log(`Writing to serial port: ${message}`);
+            }
+          });
+        } else {
+          console.warn('⚠️ Serial port not open, cannot send data.');
+        }
       } else {
-        console.warn('⚠️ Serial port not open, cannot send data.');
+        console.log(`Not writing to serial port as command is the same`);
       }
     });
   });
