@@ -2,4 +2,4 @@
 
 To run execute:
 
-    node poller.js
+    HOSTNAME=192.168.0.5 PORT=3000 ARDUINO_PORT=/dev/ttyUSB0 node poller.js
