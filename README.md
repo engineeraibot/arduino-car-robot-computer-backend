@@ -1,5 +1,9 @@
 # arduino-car-robot-computer-backend
 
+To check arduino port:
+
+    ls /dev/tty*
+
 To run execute:
 
-    HOSTNAME=192.168.0.5 PORT=3000 ARDUINO_PORT=/dev/ttyUSB0 node poller.js
+    HOSTNAME=192.168.1.49 PORT=8082 ARDUINO_PORT=/dev/ttyACM0 node poller.js
