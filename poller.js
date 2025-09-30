@@ -35,7 +35,7 @@ function poll() {
 
     res.on('end', () => {
       const message = `${data}.`; // Append "." as marker
-      console.log(`Polled command: ${message}`);
+      // console.log(`Polled command: ${message}`);
 
       if(message !== lastPolledCommand) {
         lastPolledCommand = message;
